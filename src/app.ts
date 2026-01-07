@@ -4,6 +4,7 @@ import dbConexao from './config/db';
 
 import livros from './routes/livros';
 import generos from './routes/generos';
+import usuarios from './routes/usuarios';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ app.use(express.json());
 // Rotas da aplicação
 app.use('/api/livros/', livros);
 app.use('/api/generos/', generos);
-
+app.use('/api/usuarios/', usuarios);
 
 app.listen(PORTA, async () => {
 
