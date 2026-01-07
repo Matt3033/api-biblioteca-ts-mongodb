@@ -20,15 +20,15 @@ export default class LivrosRepositories {
             }
 
             return {
-                id: String(livro?._id),
-                titulo: livro?.titulo,
-                autor: livro?.autor,
-                descricao: livro?.descricao,
-                dataLancamento: livro?.dataLancamento,
-                quantidade: livro?.quantidade,
-                img: livro?.img,
-                generoId: String(livro?.generoId),
-                emprestado: livro?.emprestado
+                id: String(livro._id),
+                titulo: livro.titulo,
+                autor: livro.autor,
+                descricao: livro.descricao,
+                dataLancamento: livro.dataLancamento,
+                quantidade: livro.quantidade,
+                img: livro.img,
+                generoId: String(livro.generoId),
+                emprestado: livro.emprestado
             }
 
         } catch (err: any) {

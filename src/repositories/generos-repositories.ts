@@ -19,7 +19,7 @@ export default class GenerosRepositories {
             if (!genero) {
                 return false;
             }
-            return { id: String(genero?._id), nome: genero?.nome, qtdLivros: genero?.qtdLivros };
+            return { id: String(genero._id), nome: genero.nome, qtdLivros: genero.qtdLivros };
             
         } catch (err: any) {
             throw new Error(err.message);
