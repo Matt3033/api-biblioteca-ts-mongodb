@@ -5,7 +5,6 @@ const schema = new Schema({
     autor: { type: String, required: true },
     descricao: { type: String, required: true },
     dataLancamento: { type: Date, required: true },
-    emprestado: { type: Boolean, required: true },
     quantidade: { type: Number, required: true },
     img: { type: String, required: true },
     generoId: { type: Schema.Types.ObjectId, ref: 'Genero', required: true }
