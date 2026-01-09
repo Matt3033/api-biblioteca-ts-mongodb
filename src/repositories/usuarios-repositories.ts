@@ -1,7 +1,7 @@
 import Usuario from '../types/usuario';
 import UsuarioModel from '../models/usuario';
 
-export default class UsuariosRepository {
+export default class UsuariosRepositories {
 
     public async cadastrarUsuarioRepository(data: Omit<Usuario, 'id'>): Promise<void> {
         try {
@@ -11,7 +11,7 @@ export default class UsuariosRepository {
         }
     }
 
-    public async buscarUsuarioPorAtributoRepository(data: Object): Promise<boolean | void | Usuario[]> {
+    public async buscarUsuarioPorAtributoRepository(data: Object): Promise<false | void | Usuario[]> {
         try {
             const usuarios = await UsuarioModel.find(data);
 
@@ -29,6 +29,20 @@ export default class UsuariosRepository {
             })
 
             return usuariosResposta;
+
+        } catch (err: any) {
+            throw new Error(err.message);
+        }
+    }
+
+    public async buscarUsuarioPorIdRepository(id: string) {
+        try {
+            const usuario = await UsuarioModel.findById(id);
+            
+            if (!usuario) {
+                return false;
+            }
+            return usuario;
 
         } catch (err: any) {
             throw new Error(err.message);

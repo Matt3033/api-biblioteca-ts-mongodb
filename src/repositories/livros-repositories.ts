@@ -11,7 +11,7 @@ export default class LivrosRepositories {
         }
     }
 
-    public async buscarLivroPorIdRepository(id: string): Promise<boolean | Livro | void > {
+    public async buscarLivroPorIdRepository(id: string): Promise<false | Livro | void > {
         try {
             const livro = await LivroModel.findById(id);
 
@@ -27,8 +27,7 @@ export default class LivrosRepositories {
                 dataLancamento: livro.dataLancamento,
                 quantidade: livro.quantidade,
                 img: livro.img,
-                generoId: String(livro.generoId),
-                emprestado: livro.emprestado
+                generoId: String(livro.generoId)
             }
 
         } catch (err: any) {

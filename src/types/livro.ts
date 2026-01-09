@@ -6,6 +6,5 @@ export default interface Livro {
     dataLancamento: Date,
     quantidade: number,
     img: string,
-    generoId: string,
-    emprestado: boolean
+    generoId: string
 }

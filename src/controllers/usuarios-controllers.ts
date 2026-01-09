@@ -1,6 +1,4 @@
 import { Request, Response } from 'express';
-import UsuarioModel from '../models/usuario';
-import Usuario from '../types/usuario';
 import CadastrarUsuarioService from '../services/cadastrarUsuarioService';
 
 export default class UsuariosControllers {

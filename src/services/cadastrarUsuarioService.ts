@@ -1,12 +1,12 @@
-import UsuarioModel from "../models/usuario";
-import Usuario from "../types/usuario";
-import UsuariosRepository from "../repositories/usuarios-repository";
+import UsuarioModel from '../models/usuario';
+import Usuario from '../types/usuario';
+import UsuariosRepositories from '../repositories/usuarios-repositories';
 
 export default class CadastrarUsuarioService {
 
     public async execute(data: Usuario): Promise<void> {
 
-        const repositoryUsuario: UsuariosRepository = new UsuariosRepository(); 
+        const repositoryUsuario: UsuariosRepositories = new UsuariosRepositories(); 
 
         const regexEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]/i;
         if (!regexEmail.test(data.email)) {
