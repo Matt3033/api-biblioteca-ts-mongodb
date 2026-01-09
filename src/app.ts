@@ -5,6 +5,7 @@ import dbConexao from './config/db';
 import livros from './routes/livros';
 import generos from './routes/generos';
 import usuarios from './routes/usuarios';
+import emprestimos from './routes/emprestimos';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use('/api/livros/', livros);
 app.use('/api/generos/', generos);
 app.use('/api/usuarios/', usuarios);
+app.use('/api/emprestimos/', emprestimos);
 
 app.listen(PORTA, async () => {
 

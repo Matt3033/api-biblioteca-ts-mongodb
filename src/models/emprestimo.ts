@@ -7,6 +7,6 @@ const schema = new Schema({
     dataDevolucao: { type: Date, required: true }
 })
 
-const Emprestimo = model('Emprestimo', schema);
+const EmprestimoModel = model('Emprestimo', schema);
 
-export default Emprestimo;
+export default EmprestimoModel;
