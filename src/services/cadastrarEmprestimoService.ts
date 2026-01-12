@@ -6,7 +6,7 @@ import EmprestimosRepositories from '../repositories/emprestimos-repositories';
 
 export default class CadastrarEmprestimoService {
     
-    public async execute(data: Omit<Emprestimo, 'id'>) {
+    public async execute(data: Omit<Emprestimo, 'id'>): Promise<void> {
         
         const repositoryUsuario: UsuariosRepositories = new UsuariosRepositories(); 
         const repositoryLivro: LivrosRepositories = new LivrosRepositories();

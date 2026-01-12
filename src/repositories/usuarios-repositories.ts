@@ -35,14 +35,20 @@ export default class UsuariosRepositories {
         }
     }
 
-    public async buscarUsuarioPorIdRepository(id: string) {
+    public async buscarUsuarioPorIdRepository(id: string): Promise<false | Usuario> {
         try {
             const usuario = await UsuarioModel.findById(id);
-            
+
             if (!usuario) {
                 return false;
             }
-            return usuario;
+
+            return {
+                id: String(usuario._id),
+                nome: usuario.nome,
+                email: usuario.email,
+                condicao: usuario.condicao
+            };
 
         } catch (err: any) {
             throw new Error(err.message);

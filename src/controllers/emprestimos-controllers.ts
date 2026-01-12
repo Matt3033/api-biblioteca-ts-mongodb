@@ -18,15 +18,15 @@ export default class EmprestimosControllers {
         }    
     }
 
-    public async buscarEmprestimosControllers(req: Request, res: Response) {
+    public async buscarEmprestimosControllers(req: Request, res: Response): Promise<Response> {
         try {
             
             const repositoryEmprestimos: EmprestimosRepositories = new EmprestimosRepositories();
             const emprestimos = await repositoryEmprestimos.buscarEmprestimosRepository();
             
-            res.send({ statusCode: 200, msg: emprestimos });
+            return res.send({ statusCode: 200, msg: emprestimos });
         } catch (err: any) {
-            res.send({ statusCode: 422, msg: err.message })
+            return res.send({ statusCode: 422, msg: err.message });
         }
     }
 }

@@ -12,7 +12,7 @@ export default class GenerosRepositories {
 
     }
 
-    public async buscarGeneroPorIdRepository(id: string): Promise<boolean | Genero | void> {
+    public async buscarGeneroPorIdRepository(id: string): Promise<false | Genero | void> {
         try {
             const genero = await GeneroModel.findById(id);
 

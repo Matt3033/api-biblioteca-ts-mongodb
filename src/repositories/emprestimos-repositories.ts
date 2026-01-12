@@ -3,7 +3,7 @@ import EmprestimoModel from '../models/emprestimo';
 
 export default class EmprestimosRepositories {
     
-    public async cadastrarEmprestimoRepository(data: Omit<Emprestimo, 'id'>) {
+    public async cadastrarEmprestimoRepository(data: Omit<Emprestimo, 'id'>): Promise<void> {
         try {
             await EmprestimoModel.create(data);
         } catch (err: any) {
