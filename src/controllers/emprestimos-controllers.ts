@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import CadastrarEmprestimoService from '../services/cadastrarEmprestimoService';
+import EmprestimosRepositories from '../repositories/emprestimos-repositories';
 
 export default class EmprestimosControllers {
     
@@ -15,5 +16,17 @@ export default class EmprestimosControllers {
         } catch (err: any) {
             return res.send({ statusCode: 422, msg: err.message });
         }    
+    }
+
+    public async buscarEmprestimosControllers(req: Request, res: Response) {
+        try {
+            
+            const repositoryEmprestimos: EmprestimosRepositories = new EmprestimosRepositories();
+            const emprestimos = await repositoryEmprestimos.buscarEmprestimosRepository();
+            
+            res.send({ statusCode: 200, msg: emprestimos });
+        } catch (err: any) {
+            res.send({ statusCode: 422, msg: err.message })
+        }
     }
 }

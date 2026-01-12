@@ -5,5 +5,6 @@ const router = Router();
 const emprestimosControllers: EmprestimosControllers = new EmprestimosControllers();
 
 router.post('/', emprestimosControllers.cadastrarEmprestimoController);
+router.get('/', emprestimosControllers.buscarEmprestimosControllers);
 
 export default router;

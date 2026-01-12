@@ -10,4 +10,18 @@ export default class EmprestimosRepositories {
             throw new Error(err.message);
         }
     }
+    
+    public async buscarEmprestimosRepository() {
+        try {
+            const emprestimos = await EmprestimoModel.find();
+            
+            if (emprestimos.length === 0) {
+                return false;
+            }
+            return emprestimos;
+
+        } catch (err: any) {
+            throw new Error(err.message);
+        }
+    }
 }
