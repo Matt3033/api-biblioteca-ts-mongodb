@@ -19,14 +19,14 @@ export default class UsuariosRepositories {
                 return false;
             }
 
-            const usuariosResposta: Usuario[] = usuarios.map(item => {
-                return {
+            const usuariosResposta: Usuario[] = usuarios.map(item => (
+                {
                     id: String(item._id),
                     nome: item.nome,
                     email: item.email,
                     condicao: item.condicao
-                };
-            })
+                }
+            ))
 
             return usuariosResposta;
 
@@ -35,7 +35,7 @@ export default class UsuariosRepositories {
         }
     }
 
-    public async buscarUsuarioPorIdRepository(id: string): Promise<false | Usuario> {
+    public async buscarUsuarioPorIdRepository(id: string): Promise<false | Usuario | void> {
         try {
             const usuario = await UsuarioModel.findById(id);
 

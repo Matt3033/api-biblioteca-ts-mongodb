@@ -7,7 +7,7 @@ export default class EmprestimosControllers {
     public async cadastrarEmprestimoController(req: Request, res: Response): Promise<Response> {
         try {
 
-            const data = req.body
+            const data = req.body;
             const cadastrarEmprestimoService: CadastrarEmprestimoService = new CadastrarEmprestimoService();
             await cadastrarEmprestimoService.execute(data);
 

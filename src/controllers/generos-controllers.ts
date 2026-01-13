@@ -10,7 +10,7 @@ export default class GenerosControllers {
             const { nome } = req.body;
             
             if (nome === '') {
-                return res.send({ statusCode: 422, msg: 'Preencha o nome corretamente' })
+                return res.send({ statusCode: 422, msg: 'Preencha o nome corretamente' });
             }
 
             const dataEnvio: Omit<Genero, 'id'> = {
