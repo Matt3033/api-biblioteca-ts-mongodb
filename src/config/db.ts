@@ -3,15 +3,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const dbURI = String(process.env.DB_URI);
+export default class ConexaoDB {
+    
+    private dbURI = String(process.env.DB_URI);
 
-const dbConexao = async () => {
-    try {
-        mongoose.connect(dbURI);
-        console.log('Conexão estabelecida');
-    } catch (err: any) {
-        console.log(err.message);
+    public async conexaoMongo() {
+        try {
+            mongoose.connect(this.dbURI);
+            console.log('Conexão estabelecida');
+        } catch (err: any) {
+            console.log(err.message);
+        }
     }
 }
-
-export default dbConexao;

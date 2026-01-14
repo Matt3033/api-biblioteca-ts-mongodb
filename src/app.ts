@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import dbConexao from './config/db';
+import ConexaoDB from './config/db';
 
 import livros from './routes/livros';
 import generos from './routes/generos';
@@ -22,7 +22,8 @@ app.use('/api/emprestimos/', emprestimos);
 
 app.listen(PORTA, async () => {
 
-    await dbConexao();
+    const conexaoDB: ConexaoDB = new ConexaoDB();
+    await conexaoDB.conexaoMongo();
 
     console.log(`Ouvindo em http://localhost:${PORTA}`);
 })
