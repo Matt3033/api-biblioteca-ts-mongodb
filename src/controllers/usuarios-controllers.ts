@@ -10,10 +10,10 @@ export default class UsuariosControllers {
             const cadastrarUsuarioService: CadastrarUsuarioService = new CadastrarUsuarioService();
             await cadastrarUsuarioService.execute(data);
             
-            return res.send({ statusCode: 200, msg: 'Usuário cadastrado' });
+            return res.status(200).send({ statusCode: 200, msg: 'Usuário cadastrado' });
         
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }
     }
 }

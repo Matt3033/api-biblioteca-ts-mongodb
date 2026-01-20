@@ -11,10 +11,10 @@ export default class EmprestimosControllers {
             const cadastrarEmprestimoService: CadastrarEmprestimoService = new CadastrarEmprestimoService();
             await cadastrarEmprestimoService.execute(data);
 
-            return res.send({ statusCode: 200, msg: 'Empréstimo registrado' });
+            return res.status(200).send({ statusCode: 200, msg: 'Empréstimo registrado' });
         
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }    
     }
 
@@ -24,9 +24,9 @@ export default class EmprestimosControllers {
             const repositoryEmprestimos: EmprestimosRepositories = new EmprestimosRepositories();
             const emprestimos = await repositoryEmprestimos.buscarEmprestimosRepository();
             
-            return res.send({ statusCode: 200, msg: emprestimos });
+            return res.status(200).send({ statusCode: 200, msg: emprestimos });
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }
     }
 }

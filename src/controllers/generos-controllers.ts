@@ -10,7 +10,7 @@ export default class GenerosControllers {
             const { nome } = req.body;
             
             if (nome === '') {
-                return res.send({ statusCode: 422, msg: 'Preencha o nome corretamente' });
+                return res.status(422).send({ statusCode: 422, msg: 'Preencha o nome corretamente' });
             }
 
             const dataEnvio: Omit<Genero, 'id'> = {
@@ -21,10 +21,10 @@ export default class GenerosControllers {
             const repositoryGenero: GenerosRepositories = new GenerosRepositories();
             await repositoryGenero.criarGeneroRepository(dataEnvio);
 
-            return res.send({ statusCode: 200, msg: 'Gênero cadastrado' });
+            return res.status(200).send({ statusCode: 200, msg: 'Gênero cadastrado' });
 
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }
     }
 
@@ -33,16 +33,16 @@ export default class GenerosControllers {
             const id = req.params.id;
 
             if (!id) {
-                return res.send({ statusCode: 422, msg: 'O id está faltando' });
+                return res.status(422).send({ statusCode: 422, msg: 'O id está faltando' });
             }
             
             const repositoryGenero: GenerosRepositories = new GenerosRepositories();
             const genero = await repositoryGenero.buscarGeneroPorIdRepository(id);
         
-            return res.send({ statusCode: 200, msg: genero });
+            return res.status(200).send({ statusCode: 200, msg: genero });
 
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }
     }
 }

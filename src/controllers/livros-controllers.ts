@@ -26,7 +26,7 @@ export default class LivrosControllers {
                 img === '' ||
                 generoId === ''
             ) {
-                return res.send({ statusCode: 422, msg: 'Preencha todos os dados corretamente' });
+                return res.status(422).send({ statusCode: 422, msg: 'Preencha todos os dados corretamente' });
             }
 
             const dataEnvio: Omit<Livro, 'id'> = {
@@ -37,10 +37,10 @@ export default class LivrosControllers {
             const repositoryLivro: LivrosRepositories = new LivrosRepositories();
             await repositoryLivro.cadastrarLivroRepository(dataEnvio);
 
-            return res.send({ statusCode: 200, msg: 'Livro cadastrado' });
+            return res.status(200).send({ statusCode: 200, msg: 'Livro cadastrado' });
 
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }
     }
 
@@ -50,16 +50,16 @@ export default class LivrosControllers {
             const id = req.params.id;
 
             if (!id) {
-                return res.send({ statusCode: 422, msg: 'O id está faltando' });
+                return res.status(422).send({ statusCode: 422, msg: 'O id está faltando' });
             }
 
             const repositoryLivro: LivrosRepositories = new LivrosRepositories();
             const livro = await repositoryLivro.buscarLivroPorIdRepository(id);
 
-            return res.send({ statusCode: 200, msg: livro });
+            return res.status(200).send({ statusCode: 200, msg: livro });
 
         } catch (err: any) {
-            return res.send({ statusCode: 422, msg: err.message });
+            return res.status(422).send({ statusCode: 422, msg: err.message });
         }
     }
 }
